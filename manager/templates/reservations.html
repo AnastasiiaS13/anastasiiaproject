@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+  <section class="booking">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Reservations
+        </h2>
+      <div class="filters-content">
+        <div class="row grid">
+        <div class="col-sm-6 col-lg-4 all">
+            {% for item in items %}
+                <div>
+                    <div>{{ item.name }}</div>
+                    <div>{{ item.phone }}</div>
+                    <div>{{ item.email }}</div>
+                    <div>{{ item.count }}</div>
+                    <div>{{ item.date }}</div>
+                <div><a href="{% url 'manager:booking_confirm' item.pk %}">Confirm</a></div>
+                </div>
+            {% endfor %}
+
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
