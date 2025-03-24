@@ -29,6 +29,7 @@ urlpatterns = [
     path('register/', UserRegistrationView.as_view(), name='register'),
     path('logout/', logout_view, name='logout'),
     path('manager/', include('manager.urls')),
+    path('cart/', include('order.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

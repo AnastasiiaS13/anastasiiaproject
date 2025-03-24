@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'ckeditor',
     'account.apps.AccountConfig',
-    'manager.apps.ManagerConfig'
+    'manager.apps.ManagerConfig',
+    'order.apps.OrderConfig'
 ]
 
 MIDDLEWARE = [
@@ -102,7 +103,7 @@ elif DB_ENV == 'prod':
         'PORT': os.getenv('DB_PORT'),
     }
 else:
-    raise Exception('DB_ENV must be in dev or prod.')
+    raise ValueError('DB_ENV must be in "dev" or "prod".')
 
 
 # Password validation
@@ -110,16 +111,20 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation.'
+                'NumericPasswordValidator',
     },
 ]
 
